@@ -1,0 +1,17 @@
+
+# pipeline backends - pandas / pyspark
+
+
+{
+    "pipeline_backend":"pandas",
+    "input_file": "customer_data.csv",
+    "expected_columns": ["Name", "DOB", "Email", "Address"],
+    "quality_check_column": "Age",
+    "transformations": [
+        {"type": "rename", "columns": {"Name": "Full Name"}},
+        {"type": "drop", "columns": ["Address"]},
+        {"type": "age_calculation", "dob_column": "DOB", "new_column": "Age"}
+    ],
+    "target_type": "File",
+    "data_target": "my_database.my_table"
+}
