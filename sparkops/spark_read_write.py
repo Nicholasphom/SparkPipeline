@@ -61,6 +61,8 @@ class SparkWrite():
                 spark_df = spark_manager.spark_context.write.options(**kwargs).mode(mode).save(file_dir)
             except Exception as e:
                 print("Error in writing csv data into spark ..",e)
+    def write_csv(self,file_dir,mode = 'overwrite',delimiter = ",", header = True, **kwargs):
+        pass
     
    
         
